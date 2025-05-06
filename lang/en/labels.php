@@ -6,7 +6,6 @@ return [
     'home' => 'Home',
     'contacts' => 'Contact Us',
     'about_us' => 'About Us',
-    'categories' => 'Categories',
     'see_more' => 'See More',
     'explore' => 'Explore',
     'shop_now' => 'Shop Now',

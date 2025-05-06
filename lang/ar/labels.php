@@ -7,7 +7,6 @@ return [
     'home' => 'الصفحة الرئيسية',
     'contacts' => 'أتصل بنا',
     'about_us' => 'معلومات عنا',
-    'categories' => 'التصنيفات',
     'see_more' => 'عرض المزيد',
     'explore' => 'اكتشاف',
     'shop_now' => 'تسوق الان',
