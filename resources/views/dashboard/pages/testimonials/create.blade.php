@@ -43,27 +43,6 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                {{-- <div class="dropzone overflow-visible p-0" id="formDropzone">
-                                    <label class="form-label text-muted opacity-75 fw-medium" for="formImage">Image
-                                        *</label>
-                                    <div class="dropzone-drag-area form-control" id="previews">
-                                        <div class="dz-message text-muted opacity-50" data-dz-message>
-                                            <span>Drag file here to upload</span>
-                                        </div>
-                                        <div class="d-none" id="dzPreviewContainer">
-                                            <div class="dz-preview dz-file-preview">
-                                                <div class="dz-photo">
-                                                    <img class="dz-thumbnail" data-dz-thumbnail>
-                                                </div>
-                                                <button class="dz-delete border-0 p-0" type="button" data-dz-remove>
-                                                    <i class="material-symbols-rounded text-lg text-white">close</i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <input type="text" name="image" id="dropZoneInput" hidden required>
-                                    </div>
-                                    <div class="invalid-feedback fw-bold">Please upload an image.</div>
-                                </div> --}}
                                 <label for="exampleFormControlInput1" class="form-label">Image *</label>
                                 <div class="input-group input-group-outline">
                                     <input class="form-control @error('image') is-invalid @enderror" type="file"

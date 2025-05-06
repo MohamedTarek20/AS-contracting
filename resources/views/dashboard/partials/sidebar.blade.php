@@ -184,6 +184,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link @if (request()->routeIs('admin.partners.*')) active  bg-gradient-dark text-white @else text-dark @endif" href="{{ route('admin.partners.index') }}">
+                    <i class="material-symbols-rounded opacity-5">handshake</i>
+                    <span class="nav-link-text ms-1">Partners</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-dark" href="../pages/billing.html">
                     <i class="material-symbols-rounded opacity-5">receipt_long</i>
                     <span class="nav-link-text ms-1">Billing</span>
