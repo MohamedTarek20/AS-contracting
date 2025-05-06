@@ -1,7 +1,7 @@
 @extends('dashboard.app')
 @push('styles')
-    <link href="{{ asset('dashboard/assets/css/dropzone.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('dashboard/assets/css/dropzone.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('dashboard/assets/css/dropzone.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('dashboard/assets/css/dropzone.css') }}" rel="stylesheet"> --}}
 @endpush
 @section('content')
     <div class="row">
@@ -16,7 +16,8 @@
                 </div>
                 <div class="card-body">
                     <form role="form" class="text-start"
-                        action="{{ route('admin.sliders.update', ['slider' => $data->id]) }}" method="post" novalidate>
+                        action="{{ route('admin.sliders.update', ['slider' => $data->id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="row mt-3">
@@ -110,8 +111,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-12">
                                 {{-- <div class="dropzone overflow-visible p-0" id="formDropzone">
                                     <label class="form-label text-muted opacity-75 fw-medium" for="formImage">Image
@@ -140,9 +139,8 @@
                                         </span>
                                     @enderror
                                 </div> --}}
-                                <label for="exampleFormControlInput1" class="form-label">Image *</label>
-
                                 <div class="row">
+                                    <label for="exampleFormControlInput1" class="form-label">Image *</label>
                                     <div class="col-11">
                                         <div class="input-group input-group-outline">
                                             <input class="form-control @error('image') is-invalid @enderror" type="file"
@@ -162,27 +160,28 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div>
-                                        <div
-                                            class="input-group input-group-outline my-3 @if (old('url') ?? $data->url) is-filled @endif">
-                                            <label for="exampleFormControlInput1" class="form-label">Url</label>
-                                            <input class="form-control  @error('url') is-invalid @enderror"
-                                                type="text" onfocus="focused(this)" onfocusout="defocused(this)"
-                                                name="url" value="{{ old('url') ?? $data->url }}">
-                                            @error('url')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                            </div>
+                            <div class="col-12">
+                                <div>
+                                    <div
+                                        class="input-group input-group-outline my-3 @if (old('url') ?? $data->url) is-filled @endif">
+                                        <label for="exampleFormControlInput1" class="form-label">Url</label>
+                                        <input class="form-control  @error('url') is-invalid @enderror" type="text"
+                                            onfocus="focused(this)" onfocusout="defocused(this)" name="url"
+                                            value="{{ old('url') ?? $data->url }}">
+                                        @error('url')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
-                            <div class="button-row d-flex mt-4">
-                                <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
-                                    title="Next">Update</button>
-                            </div>
+                        </div>
+                        <div class="button-row d-flex mt-4">
+                            <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
+                                title="Next">Update</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -190,9 +189,9 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{ asset('dashboard/assets/js/plugins/dropzone.min.js') }}"></script>
+    {{-- <script src="{{ asset('dashboard/assets/js/plugins/dropzone.min.js') }}"></script>
     <script>
         var existingImageUrl = '{{ $data->image_full_path }}';
     </script>
-    <script src="{{ asset('dashboard/assets/js/dropzone.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/js/dropzone.js') }}"></script> --}}
 @endpush

@@ -16,6 +16,7 @@ return [
     'additional_information' => 'معلومات إضافية',
     'related_products' => 'منتجات ذات صلة',
     'client_testimonial'  => 'آراء العملاء',
+    'client_testimonial_subtitle' => 'ما هى آراء العملائنا ؟',
     'email' => 'البريد الالكتروني',
     'location' => 'العنوان',
     'phone' => 'رقم الهاتف',

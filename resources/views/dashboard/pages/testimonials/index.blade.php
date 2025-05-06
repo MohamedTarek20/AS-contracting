@@ -8,12 +8,12 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-lg-flex">
                         <div>
-                            <h6 class="text-white text-capitalize ps-3">Sliders</h6>
+                            <h6 class="text-white text-capitalize ps-3">Testimonials</h6>
                         </div>
                         <div class="ms-auto my-auto mt-lg-0 mt-4 me-3">
                             <div class="ms-auto my-auto">
-                                <a href="{{ route('admin.sliders.create') }}" class="btn bg-gradient-dark btn-sm mb-0">+
-                                    New Slider</a>
+                                <a href="{{ route('admin.testimonials.create') }}" class="btn bg-gradient-dark btn-sm mb-0">+
+                                    New Testimonial</a>
                             </div>
                         </div>
                     </div>
@@ -29,16 +29,10 @@
                                     </th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (AR)</th>
+                                        Name</th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (EN)</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (ZH)</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
-                                        Url</th>
+                                        Description</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
                                         Image</th>
@@ -46,7 +40,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $index => $slider)
+                                @foreach ($data as $index => $testimonial)
                                     <tr>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $index + 1 }}</span>
@@ -54,32 +48,24 @@
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $slider->title_ar }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $testimonial->name }}</span>
 
                                         </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $slider->title_en }}</span>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $testimonial->description }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $slider->title_zh_cn }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $slider->url }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            @if ($slider->image)
-                                                <img src="{{ $slider->image_full_path }}" class="avatar border-radius-lg"
+                                            @if ($testimonial->image)
+                                                <img src="{{ $testimonial->image_full_path }}" class="avatar border-radius-lg"
                                                     width="50px" height="50px">
                                             @endif
                                         </td>
                                         <td class="align-middle text-center">
                                             <a class="btn btn-link text-dark px-3 mb-0"
-                                                href="{{ route('admin.sliders.edit', ['slider' => $slider->id]) }}"><i
+                                                href="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial->id]) }}"><i
                                                     class="material-symbols-rounded text-sm me-2">edit</i>Edit</a>
                                             <form style="display: inline" method="post"
-                                                action="{{ route('admin.sliders.destroy', ['slider' => $slider->id]) }}">
+                                                action="{{ route('admin.testimonials.destroy', ['testimonial' => $testimonial->id]) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-link text-danger text-gradient px-3 mb-0"
