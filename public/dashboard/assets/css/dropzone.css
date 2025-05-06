@@ -88,3 +88,9 @@
     border-color: #dee2e6 !important;
     background-image: none;
 }
+
+
+.dropzone-drag-area.form-control.is-invalid{
+    border: 3px dashed #dc3545;
+    background-image: none;
+}
