@@ -17,7 +17,8 @@ return [
     'client_testimonial' => 'Client Testimonials',
     'client_testimonial_subtitle' => 'What Our Clients Say?',
     'email' => 'Email',
-    'location' => 'Location',
+
+    'location' => 'Our Location',
     'phone' => 'Phone',
     'contact_information' => 'Get In Touch',
     'contact_information_subtitle' => 'Have An Upcoming Projects? Let’s Talk to Now!',
