@@ -222,7 +222,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="cta-group justify-content-center">
-                        <a href="{{ route('contact.index') }}" class="th-btn style1 th-icon">{{ __('labels.contacts') }}<i
+                        <a href="{{ route('contacts.index') }}" class="th-btn style1 th-icon">{{ __('labels.contacts') }}<i
                                 class="fa-regular fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
