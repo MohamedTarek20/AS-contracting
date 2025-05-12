@@ -134,7 +134,4 @@
     </div>
 @endsection
 @push('scripts')
-    <script>
-        $('.summernote').summernote()
-    </script>
 @endpush

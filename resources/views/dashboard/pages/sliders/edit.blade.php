@@ -1,7 +1,5 @@
 @extends('dashboard.app')
 @push('styles')
-    {{--
-     --}}
 @endpush
 @section('content')
     <div class="row">
@@ -162,9 +160,4 @@
     </div>
 @endsection
 @push('scripts')
-    {{--
-    <script>
-        var existingImageUrl = '{{ $data->image_full_path }}';
-    </script>
-     --}}
 @endpush
