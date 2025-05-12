@@ -8,7 +8,7 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-lg-flex">
                         <div>
-                            <h6 class="text-white text-capitalize ps-3">About</h6>
+                            <h6 class="text-white text-capitalize ps-3">Settings</h6>
                         </div>
                     </div>
                 </div>
@@ -23,21 +23,15 @@
                                     </th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (AR)</th>
+                                        Identifier</th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (EN)</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (ZH)</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
-                                        Image</th>
+                                        Value</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $index => $about)
+                                @foreach ($data as $index => $setting)
                                     <tr>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $index + 1 }}</span>
@@ -45,26 +39,26 @@
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $about->title_ar }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ __('labels.' . $setting->identifier) }}</span>
 
                                         </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $about->title_en }}</span>
-                                        </td>
                                         <td class="align-middle text-center">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $about->title_zh_cn }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            @if ($about->image)
-                                                <img src="{{ $about->image_full_path }}" class="avatar border-radius-lg"
-                                                    width="50px" height="50px">
-                                            @endif
+                                            <span class="text-secondary text-xs font-weight-bold">
+                                                @if ($setting->identifier == 'image')
+                                                    @if ($setting->value)
+                                                        <img src="{{ $setting->image_full_path }}" class="loaded-image"
+                                                            alt="" style="width: 50px; height: 50px">
+                                                    @endif
+                                                @elseif($setting->identifier == 'contact_map')
+                                                    <div>{!! $setting->value !!}</div>
+                                                @else
+                                                    {{ $setting->value }}
+                                                @endif
+                                            </span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <a class="btn btn-link text-dark px-3 mb-0"
-                                                href="{{ route('admin.about.edit', ['about' => $about->id]) }}"><i
+                                                href="{{ route('admin.settings.edit', ['setting' => $setting->id]) }}"><i
                                                     class="material-symbols-rounded text-sm me-2">edit</i>Edit</a>
                                         </td>
                                     </tr>

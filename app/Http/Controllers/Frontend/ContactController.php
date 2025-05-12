@@ -12,10 +12,10 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::all()->groupBy('type');
-        // $map = Setting::where('identifier', 'contact_map')->first()->value ?? null;
+        $map = Setting::where('identifier', 'contact_map')->first()->value ?? null;
         return view('frontend.pages.contacts.index')->with([
             'contacts'     => $contacts,
-            'map'          => $map ?? '',
+            'map'          => $map,
         ]);
     }
 }

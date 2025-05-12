@@ -1,7 +1,7 @@
 @extends('dashboard.app')
 @push('styles')
-    {{-- <link href="{{ asset('dashboard/assets/css/dropzone.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('dashboard/assets/css/dropzone.css') }}" rel="stylesheet"> --}}
+    {{--
+     --}}
 @endpush
 @section('content')
     <div class="row">
@@ -70,7 +70,7 @@
                                     <div
                                         class="input-group input-group-outline my-3 @if (old('description_en') ?? $data->description_en) is-filled @endif">
                                         <label for="exampleFormControlInput1" class="form-label">Description (EN) *</label>
-                                        <textarea class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" rows="3" name="description_en"
+                                        <textarea class="form-control @error('description_en') is-invalid @enderror" onfocus="focused(this)" onfocusout="defocused(this)" rows="3" name="description_en"
                                             required>{{ old('description_en') ?? $data->description_en }}</textarea>
                                         @error('description_en')
                                             <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
                                         class="input-group input-group-outline my-3 @if (old('description_zh_cn') ?? $data->description_zh_cn) is-filled @endif">
                                         <label for="exampleFormControlInput1" class="form-label">Description (ZH CN)
                                             *</label>
-                                        <textarea class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" rows="3"
+                                        <textarea class="form-control @error('description_zh_cn') is-invalid @enderror" onfocus="focused(this)" onfocusout="defocused(this)" rows="3"
                                             name="description_zh_cn" required>{{ old('description_zh_cn') ?? $data->description_zh_cn }}</textarea>
                                         @error('description_zh_cn')
                                             <span class="invalid-feedback" role="alert">
@@ -112,33 +112,6 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                {{-- <div class="dropzone overflow-visible p-0" id="formDropzone">
-                                    <label class="form-label text-muted opacity-75 fw-medium" for="formImage">Image
-                                        *</label>
-                                    <div class="dropzone-drag-area form-control  @error('image') is-invalid @enderror"
-                                        id="previews">
-                                        <div class="dz-message text-muted opacity-50" data-dz-message>
-                                            <span>Drag file here to upload</span>
-                                        </div>
-                                        <div class="d-none" id="dzPreviewContainer">
-                                            <div class="dz-preview dz-file-preview">
-                                                <div class="dz-photo">
-                                                    <img class="dz-thumbnail" data-dz-thumbnail>
-                                                </div>
-                                                <button class="dz-delete border-0 p-0" type="button" data-dz-remove>
-                                                    <i class="material-symbols-rounded text-lg text-white">close</i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <input type="text" name="image" id="dropZoneInput" hidden required
-                                        data-preview-url="{{ old('image')? null : $data->image_full_path }}">
-                                    </div>
-                                    @error('image')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div> --}}
                                 <div class="row">
                                     <label for="exampleFormControlInput1" class="form-label">Image *</label>
                                     <div class="col-11">
@@ -189,9 +162,9 @@
     </div>
 @endsection
 @push('scripts')
-    {{-- <script src="{{ asset('dashboard/assets/js/plugins/dropzone.min.js') }}"></script>
+    {{--
     <script>
         var existingImageUrl = '{{ $data->image_full_path }}';
     </script>
-    <script src="{{ asset('dashboard/assets/js/dropzone.js') }}"></script> --}}
+     --}}
 @endpush

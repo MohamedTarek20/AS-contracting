@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,11 +23,11 @@ class AppServiceProvider extends ServiceProvider
     {
         if (!request()->routeIs('admin.*')) {
             view()->composer('*', function ($view) {
-                // $settings = Setting::pluck('value', 'identifier');
-                $lang = Session::has('lang') && in_array(Session::get('lang'), ['ar', 'en']) ? Session::get('lang') : 'en';
+                $settings = Setting::pluck('value', 'identifier');
+                $lang = Session::has('lang') && in_array(Session::get('lang'), ['ar', 'en', 'zh-CN']) ? Session::get('lang') : 'en';
                 app()->setLocale($lang);
                 $view->with([
-                    // 'settings' => $settings,
+                    'settings' => $settings,
                     'lang' => $lang
                 ]);
             });
