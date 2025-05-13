@@ -27,7 +27,7 @@ return [
     //contacts
     'name' => 'Name',
     'message' => 'Message',
-    'submit' => 'Submit',
+    'submit' => 'Send',
     'custom_input' => 'Your :attribute',
 
     //setings

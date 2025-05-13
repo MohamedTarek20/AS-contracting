@@ -504,7 +504,7 @@ textarea.style2 {
 .form-group > i {
   display: inline-block;
   position: absolute;
-  right: 25px;
+  left: 25px;
   top: 19px;
   font-size: 14px;
   font-weight: 400;
@@ -524,7 +524,7 @@ textarea.style2 {
   top: 50px;
 }
 [class*="col-"].form-group > i {
-  right: calc((var(--bs-gutter-x) / 2) + 25px);
+  left: calc((var(--bs-gutter-x) / 2) + 25px);
 }
 .form-rounded-10 .form-control,
 .form-rounded-10 .form-select {
@@ -12080,7 +12080,7 @@ span.select2-selection.select2-selection--single:focus {
     "M634 0H84V461.5C80.8333 486.333 59.6 536 0 536H84H634V0Z"
   );
   clip-path: path("M634 0H84V461.5C80.8333 486.333 59.6 536 0 536H84H634V0Z");
-  margin-right: -30px;
+  margin-left: -30px;
 }
 @media (max-width: 767px) {
   .contact-image {
