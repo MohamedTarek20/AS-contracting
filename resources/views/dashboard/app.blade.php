@@ -59,7 +59,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dashboard/assets/img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('dashboard/assets/img/favicon.png') }}">
     <title>
-        Material Dashboard 3 by Creative Tim
+        Elnasr | @yield('title')
     </title>
     @include('dashboard.partials.styles')
 </head>

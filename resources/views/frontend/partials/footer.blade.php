@@ -31,10 +31,10 @@
                         <h3 class="widget_title">{{ __('labels.explore') }}</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="{{route('home')}}">{{__('labels.home')}}</a></li>
-                                <li><a href="{{ route('about.index') }}">{{__('labels.about_us')}}</a></li>
-                                <li><a href="{{ route('projects.index') }}">{{__('labels.projects')}}</a></li>
-                                <li><a href="{{ route('contacts.index') }}">{{__('labels.contacts')}}</a></li>
+                                <li><a href="{{ route('home') }}">{{ __('labels.home') }}</a></li>
+                                <li><a href="{{ route('about.index') }}">{{ __('labels.about_us') }}</a></li>
+                                <li><a href="{{ route('projects.index') }}">{{ __('labels.projects') }}</a></li>
+                                <li><a href="{{ route('contacts.index') }}">{{ __('labels.contacts') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -73,8 +73,13 @@
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-12" style="display: flex;justify-content: center;">
-                    <p class="copyright-text">Copyright 2024 <a href="{{ route('home') }}">ElNasr</a>. All Rights
-                        Reserved.</p>
+                    <p class="copyright-text">©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        <a href="{{ route('home') }}">ElNasr</a>. All Rights
+                        Reserved.
+                    </p>
                 </div>
             </div>
         </div>
