@@ -1,4 +1,6 @@
 @extends('dashboard.app')
+@push('styles')
+@endpush
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -6,13 +8,14 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-lg-flex">
                         <div>
-                            <h6 class="text-white text-capitalize ps-3">Update About</h6>
+                            <h6 class="text-white text-capitalize ps-3">Update Service</h6>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form role="form" class="text-start" action="{{ route('admin.about.update', ['about' => $data->id]) }}"
-                        method="post" enctype="multipart/form-data">
+                    <form role="form" class="text-start"
+                        action="{{ route('admin.services.update', ['service' => $data->id]) }}" method="post"
+                        enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="row mt-3">
@@ -65,8 +68,8 @@
                                     <div
                                         class="input-group input-group-outline my-3 @if (old('description_en') ?? $data->description_en) is-filled @endif">
                                         <label for="exampleFormControlInput1" class="form-label">Description (EN) *</label>
-                                        <textarea class="form-control @error('description_en') is-invalid @enderror" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" rows="3" name="description_en" required>{{ old('description_en') ?? $data->description_en }}</textarea>
+                                        <textarea class="form-control @error('description_en') is-invalid @enderror" onfocus="focused(this)" onfocusout="defocused(this)" rows="3" name="description_en"
+                                            required>{{ old('description_en') ?? $data->description_en }}</textarea>
                                         @error('description_en')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -96,8 +99,8 @@
                                         class="input-group input-group-outline my-3 @if (old('description_zh_cn') ?? $data->description_zh_cn) is-filled @endif">
                                         <label for="exampleFormControlInput1" class="form-label">Description (ZH CN)
                                             *</label>
-                                        <textarea class="form-control @error('description_zh_cn') is-invalid @enderror" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" rows="3" name="description_zh_cn" required>{{ old('description_zh_cn') ?? $data->description_zh_cn }}</textarea>
+                                        <textarea class="form-control @error('description_zh_cn') is-invalid @enderror" onfocus="focused(this)" onfocusout="defocused(this)" rows="3"
+                                            name="description_zh_cn" required>{{ old('description_zh_cn') ?? $data->description_zh_cn }}</textarea>
                                         @error('description_zh_cn')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -110,11 +113,10 @@
                                 <div class="row">
                                     <label for="exampleFormControlInput1" class="form-label">Image *</label>
                                     <div class="col-11">
-                                        <div
-                                            class="input-group input-group-outline @if (old('image') ?? $data->image) is-filled @endif">
-                                            <input class="form-control  @error('image') is-invalid @enderror"
-                                                type="file" onfocus="focused(this)" onfocusout="defocused(this)"
-                                                name="image" value="{{ old('image') ?? $data->image }}" accept="image/*">
+                                        <div class="input-group input-group-outline">
+                                            <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                                onfocus="focused(this)" onfocusout="defocused(this)" name="image"
+                                                accept=".jpg,.jpeg,.png,.bmp,.gif,.svg,.webp">
                                             @error('image')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

@@ -86,23 +86,23 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" id="name" placeholder="Your Name"> <i class="fal fa-user"></i>
+                                        name="name" id="name" placeholder="{{__('labels.custom_input',['attribute' => __('labels.name')])}}"> <i class="fal fa-user"></i>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" id="email" placeholder="{{ __('labels.email') }}"> <i
+                                        name="email" id="email" placeholder="{{__('labels.custom_input',['attribute' => __('labels.email')])}}"> <i
                                         class="fal fa-envelope"></i>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="tel" class="form-control @error('phone') is-invalid @enderror"
-                                        name="phone" id="phone" placeholder="Phone Number"> <i
+                                        name="phone" id="phone" placeholder="{{__('labels.custom_input',['attribute' => __('labels.phone')])}}"> <i
                                         class="fal fa-phone"></i>
                                 </div>
                                 <div class="form-group col-12">
                                     <textarea name="message" id="message" cols="30" rows="3"
-                                        class="form-control @error('message') is-invalid @enderror" placeholder="Your Message"></textarea> <i class="fal fa-pencil"></i>
+                                        class="form-control @error('message') is-invalid @enderror" placeholder="{{__('labels.custom_input',['attribute' => __('labels.message')])}}"></textarea> <i class="fal fa-pencil"></i>
                                 </div>
-                                <div class="form-btn col-12"><button class="th-btn th-radius2">Send Message<i
+                                <div class="form-btn col-12"><button class="th-btn th-radius2">{{__('labels.submit')}}<i
                                             class="fa-regular fa-arrow-right ms-2"></i></button></div>
                             </div>
                             <p class="form-messages mb-0 mt-3"></p>

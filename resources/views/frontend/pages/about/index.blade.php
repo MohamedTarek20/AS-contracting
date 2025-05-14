@@ -6,130 +6,6 @@
 @section('title', __('labels.about_us'))
 
 @section('content')
-
-    {{-- <!-- start of breadcumb-section -->
-    <div class="tp-breadcumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="tp-breadcumb-wrap">
-                        <h2>{{ __('labels.about_us') }}</h2>
-                        <ul>
-                            <li><a href="{{ route('home') }}">{{ __('labels.home') }}</a></li>
-                            <li><span>{{ __('labels.about_us') }}</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-shape-img-1"><img src="{{ asset('frontend/assets/images/slider/img-2.png') }}" alt=""></div>
-        <div class="hero-shape-img-2"><img src="{{ asset('frontend/assets/images/slider/img-3.png') }}" alt=""></div>
-    </div>
-    <!-- end of tp-breadcumb-section-->
-
-
-    <!-- start about-section -->
-    @if ($who_we_are ?? null)
-        <section class="about-section p-5 p-t-0">
-            <div class="container">
-
-                <div class="row align-items-center">
-                    <div class="col col-lg-5 col-12">
-                        <div class="video-area">
-                            <img src="{{ $who_we_are->image_full_path }}" alt>
-                        </div>
-                    </div>
-                    <div class="col col-lg-7 col-12">
-                        <div class="about-area">
-                            <div class="about-wrap">
-                                <div class="about-title">
-                                    <small>{{ __('labels.about_us') }}</small>
-                                    <h2>
-                                        @foreach (explode(' ', $who_we_are->title) as $key => $word)
-                                            @if ($key % 2)
-                                                <span>{{ $word }}</span>
-                                            @else
-                                                {{ $word }}
-                                            @endif
-                                        @endforeach
-                                    </h2>
-                                </div>
-                                <p>{!! $who_we_are->description !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if ($our_vision ?? null)
-        <section class="about-section category-area-s2 style-2 p-5 p-t-0">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col col-lg-7 col-12">
-                        <div class="about-area">
-                            <div class="about-wrap">
-                                <div class="about-title">
-                                    <small>{{ __('labels.about_us') }}</small>
-                                    <h2>
-                                        @foreach (explode(' ', $our_vision->title) as $key => $word)
-                                            @if ($key % 2)
-                                                <span>{{ $word }}</span>
-                                            @else
-                                                {{ $word }}
-                                            @endif
-                                        @endforeach
-                                    </h2>
-                                </div>
-                                <p>{!! $our_vision->description !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-5 col-12">
-                        <div class="video-area">
-                            <img src="{{ $our_vision->image_full_path }}" alt>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if ($our_mission ?? null)
-        <section class="about-section p-5 p-t-0">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col col-lg-5 col-12">
-                        <div class="video-area">
-                            <img src="{{ $our_mission->image_full_path }}" alt>
-                        </div>
-                    </div>
-                    <div class="col col-lg-7 col-12">
-                        <div class="about-area">
-                            <div class="about-wrap">
-                                <div class="about-title">
-                                    <small>{{ __('labels.about_us') }}</small>
-                                    <h2>
-                                        @foreach (explode(' ', $our_mission->title) as $key => $word)
-                                            @if ($key % 2)
-                                                <span>{{ $word }}</span>
-                                            @else
-                                                {{ $word }}
-                                            @endif
-                                        @endforeach
-                                    </h2>
-                                </div>
-                                <p>{!! $our_mission->description !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif --}}
-    <!-- end about-section -->
-
     <div class="breadcumb-wrapper" data-bg-src="{{ asset('frontend/assets/img/bg/breadcumb-bg.jpg') }}">
         <div class="container">
             <div class="breadcumb-content">
@@ -217,12 +93,13 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="title-area mb-0 text-center text-lg-start"><span
                             class="sub-title style1 mb-20">{{ __('labels.contacts') }}</span>
-                        <h2 class="sec-title text-white">{{__('labels.contacts_title')}}</h2>
+                        <h2 class="sec-title text-white">{{ __('labels.contacts_title') }}</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="cta-group justify-content-center">
-                        <a href="{{ route('contacts.index') }}" class="th-btn style1 th-icon">{{ __('labels.contacts') }}<i
+                        <a href="{{ route('contacts.index') }}"
+                            class="th-btn style1 th-icon">{{ __('labels.contacts') }}<i
                                 class="fa-regular fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>

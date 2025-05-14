@@ -31,7 +31,17 @@ class SettingSeeder extends Seeder
                 'type'       => 'text'
             ],
             [
-                'identifier' => 'website_about',
+                'identifier' => 'website_about_ar',
+                'value'      => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum consectetuer adipiscing.',
+                'type'       => 'text'
+            ],
+            [
+                'identifier' => 'website_about_en',
+                'value'      => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum consectetuer adipiscing.',
+                'type'       => 'text'
+            ],
+            [
+                'identifier' => 'website_about_zh_cn',
                 'value'      => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum consectetuer adipiscing.',
                 'type'       => 'text'
             ],

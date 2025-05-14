@@ -1,4 +1,6 @@
 @extends('dashboard.app')
+@push('styles')
+@endpush
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -6,24 +8,21 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-lg-flex">
                         <div>
-                            <h6 class="text-white text-capitalize ps-3">Update About</h6>
+                            <h6 class="text-white text-capitalize ps-3">Create Service</h6>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form role="form" class="text-start" action="{{ route('admin.about.update', ['about' => $data->id]) }}"
-                        method="post" enctype="multipart/form-data">
-                        @method('put')
+                    <form role="form" class="text-start" action="{{ route('admin.services.store') }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="row mt-3">
                             <div class="col-12 col-sm-6 col-md-4">
                                 <div>
-                                    <div
-                                        class="input-group input-group-outline my-3 @if (old('title_ar') ?? $data->title_ar) is-filled @endif">
+                                    <div class="input-group input-group-outline my-3">
                                         <label for="exampleFormControlInput1" class="form-label">Title (AR) *</label>
                                         <input class="form-control @error('title_ar') is-invalid @enderror" type="text"
-                                            onfocus="focused(this)" name="title_ar" onfocusout="defocused(this)" required
-                                            value="{{ old('title_ar') ?? $data->title_ar }}">
+                                            onfocus="focused(this)" name="title_ar" onfocusout="defocused(this)" required>
                                         @error('title_ar')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -33,11 +32,10 @@
                                 </div>
 
                                 <div>
-                                    <div
-                                        class="input-group input-group-outline my-3 @if (old('description_ar') ?? $data->description_ar) is-filled @endif">
+                                    <div class="input-group input-group-outline my-3">
                                         <label for="exampleFormControlInput1" class="form-label">Description (AR) *</label>
                                         <textarea class="form-control @error('description_ar') is-invalid @enderror" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" rows="3" name="description_ar" required>{{ old('description_ar') ?? $data->description_ar }}</textarea>
+                                            onfocusout="defocused(this)" rows="3" name="description_ar" required></textarea>
                                         @error('description_ar')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -48,12 +46,10 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
                                 <div>
-                                    <div
-                                        class="input-group input-group-outline my-3 @if (old('title_en') ?? $data->title_en) is-filled @endif">
+                                    <div class="input-group input-group-outline my-3">
                                         <label for="exampleFormControlInput1" class="form-label">Title (EN) *</label>
                                         <input class="form-control" type="text" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" name="title_en" required
-                                            value="{{ old('title_en') ?? $data->title_en }}">
+                                            onfocusout="defocused(this)" name="title_en" required>
                                         @error('title_en')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -62,11 +58,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div
-                                        class="input-group input-group-outline my-3 @if (old('description_en') ?? $data->description_en) is-filled @endif">
+                                    <div class="input-group input-group-outline my-3">
                                         <label for="exampleFormControlInput1" class="form-label">Description (EN) *</label>
                                         <textarea class="form-control @error('description_en') is-invalid @enderror" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" rows="3" name="description_en" required>{{ old('description_en') ?? $data->description_en }}</textarea>
+                                            onfocusout="defocused(this)" rows="3" name="description_en" required></textarea>
                                         @error('description_en')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -77,12 +72,10 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-4">
                                 <div>
-                                    <div
-                                        class="input-group input-group-outline my-3 @if (old('title_zh_cn') ?? $data->title_zh_cn) is-filled @endif">
+                                    <div class="input-group input-group-outline my-3">
                                         <label for="exampleFormControlInput1" class="form-label">Title (ZH CN) *</label>
                                         <input class="form-control" type="text" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" name="title_zh_cn" required
-                                            value="{{ old('title_zh_cn') ?? $data->title_zh_cn }}">
+                                            onfocusout="defocused(this)" name="title_zh_cn" required>
                                         @error('title_zh_cn')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -92,12 +85,11 @@
                                 </div>
 
                                 <div>
-                                    <div
-                                        class="input-group input-group-outline my-3 @if (old('description_zh_cn') ?? $data->description_zh_cn) is-filled @endif">
+                                    <div class="input-group input-group-outline my-3">
                                         <label for="exampleFormControlInput1" class="form-label">Description (ZH CN)
                                             *</label>
                                         <textarea class="form-control @error('description_zh_cn') is-invalid @enderror" onfocus="focused(this)"
-                                            onfocusout="defocused(this)" rows="3" name="description_zh_cn" required>{{ old('description_zh_cn') ?? $data->description_zh_cn }}</textarea>
+                                            onfocusout="defocused(this)" rows="3" name="description_zh_cn" required></textarea>
                                         @error('description_zh_cn')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -106,34 +98,25 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-12">
-                                <div class="row">
-                                    <label for="exampleFormControlInput1" class="form-label">Image *</label>
-                                    <div class="col-11">
-                                        <div
-                                            class="input-group input-group-outline @if (old('image') ?? $data->image) is-filled @endif">
-                                            <input class="form-control  @error('image') is-invalid @enderror"
-                                                type="file" onfocus="focused(this)" onfocusout="defocused(this)"
-                                                name="image" value="{{ old('image') ?? $data->image }}" accept="image/*">
-                                            @error('image')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-1 align-content-end">
-                                        @if ($data->image)
-                                            <img src="{{ asset($data->image_full_path) }}" class="loaded-image"
-                                                alt="" style="width: 50px; height: 50px">
-                                        @endif
-                                    </div>
+                                <label for="exampleFormControlInput1" class="form-label">Image *</label>
+                                <div class="input-group input-group-outline">
+                                    <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                        onfocus="focused(this)" onfocusout="defocused(this)" name="image"
+                                        accept=".jpg,.jpeg,.png,.bmp,.gif,.svg,.webp">
+                                    @error('image')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
                         <div class="button-row d-flex mt-4">
                             <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
-                                title="Next">Update</button>
+                                title="Next">Create</button>
                         </div>
                     </form>
                 </div>
