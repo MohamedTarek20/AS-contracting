@@ -27,14 +27,15 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')
             Route::resource('admins', 'AdminController');
             Route::resource('roles', 'RoleController');
             Route::resource('sliders', 'SliderController');
-            Route::resource('categories', 'CategoryController');
-            Route::resource('products', 'ProductController');
-            Route::resource('about-us', 'AboutUsController');
+            Route::resource('services', 'ServiceController');
             Route::resource('testimonials', 'TestimonialController');
-
+            Route::resource('partners', 'PartnerController');
+            Route::resource('projects', 'ProjectController');
+            Route::resource('about-us', 'AboutUsController');
             Route::resource('about', 'AboutController');
-            Route::resource('messages', 'MessageController');
             Route::resource('contacts', 'ContactController');
+
+            Route::resource('messages', 'MessageController');
             Route::resource('settings', 'SettingController');
         });
     });

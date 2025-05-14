@@ -56,8 +56,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('dashboard/assets/img/apple-icon.png')}}">
-    <link rel="icon" type="image/png" href="{{asset('dashboard/assets/img/favicon.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dashboard/assets/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('dashboard/assets/img/favicon.png') }}">
     <title>
         Material Dashboard 3 by Creative Tim
     </title>
@@ -70,24 +70,30 @@
         @include('dashboard.partials.sidebar')
     @endauth
 
-    <main
-        class="main-content @if (auth()->check()) position-relative max-height-vh-100 h-100 border-radius-lg @else    mt-0 @endif">
+    <main class="main-content @auth position-relative max-height-vh-100 h-100 border-radius-lg @else mt-0 @endauth">
 
-        @auth
-            <!-- Navbar -->
-            @include('dashboard.partials.header')
-            <!-- End Navbar -->
-        @endauth
+        <!-- Navbar -->
+        @include('dashboard.partials.header')
+        <!-- End Navbar -->
 
-        @auth
-            <div class="container-fluid py-2">
-                @yield('content')
-                @include('dashboard.partials.footer')
-            </div>
-        @else
+
+        <div style="margin-left: 15.6rem!important;">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
+        <div class="@auth container-fluid py-2 @endauth" style="min-height: 87vh">
             @yield('content')
-            @include('dashboard.partials.footer')
-        @endauth
+        </div>
+        @include('dashboard.partials.footer')
+
     </main>
 
     @include('dashboard.partials.scripts')
