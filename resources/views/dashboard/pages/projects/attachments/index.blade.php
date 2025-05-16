@@ -1,6 +1,10 @@
 @extends('dashboard.app')
+
+@section('title', 'Attachments')
+
 @push('styles')
 @endpush
+
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -8,12 +12,13 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-lg-flex">
                         <div>
-                            <h6 class="text-white text-capitalize ps-3">Projects</h6>
+                            <h6 class="text-white text-capitalize ps-3">({{ $project->title }}) Attachments</h6>
                         </div>
                         <div class="ms-auto my-auto mt-lg-0 mt-4 me-3">
                             <div class="ms-auto my-auto">
-                                <a href="{{ route('admin.projects.create') }}" class="btn bg-gradient-dark btn-sm mb-0">+
-                                    New Project</a>
+                                <a href="{{ route('admin.projects.attachments.create', ['project' => $project->id]) }}"
+                                    class="btn bg-gradient-dark btn-sm mb-0">+
+                                    New Attachment</a>
                             </div>
                         </div>
                     </div>
@@ -28,55 +33,40 @@
                                         #
                                     </th>
                                     <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (AR)</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (EN)</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
-                                        Title (ZH)</th>
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
+                                        Type</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">
-                                        Image</th>
+                                        Attachment</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $index => $project)
+                                @foreach ($data as $index => $attachment)
                                     <tr>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $index + 1 }}</span>
 
                                         </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $project->title_ar }}</span>
-
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $project->title_en }}</span>
+                                        <td class="align-middle text-center">
+                                            {{ $attachment->type }}
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $project->title_zh_cn }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            @if ($project->defaultImage)
-                                                <img src="{{ $project->defaultImage->attachment_full_path }}"
-                                                    class="avatar border-radius-lg" width="50px" height="50px">
+                                            @if ($attachment->attachment)
+                                                @if ($attachment->type == 'image')
+                                                    <img src="{{ $attachment->attachment_full_path }}"
+                                                        class="avatar border-radius-lg" width="50px" height="50px">
+                                                @else
+                                                    <video src="{{ $attachment->attachment_full_path }}" width="50px"></video>
+                                                @endif
                                             @endif
                                         </td>
                                         <td class="align-middle text-center">
                                             <a class="btn btn-link text-dark px-3 mb-0"
-                                                href="{{ route('admin.projects.attachments.index', ['project' => $project->id]) }}"><i
-                                                    class="material-symbols-rounded text-sm me-2">image</i>Attachments</a>
-                                            <a class="btn btn-link text-dark px-3 mb-0"
-                                                href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"><i
+                                                href="{{ route('admin.projects.attachments.edit', ['project' => $project->id, 'attachment' => $attachment->id]) }}"><i
                                                     class="material-symbols-rounded text-sm me-2">edit</i>Edit</a>
                                             <form style="display: inline" method="post"
-                                                action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}">
+                                                action="{{ route('admin.projects.attachments.destroy', ['project' => $project->id, 'attachment' => $attachment->id]) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-link text-danger text-gradient px-3 mb-0"

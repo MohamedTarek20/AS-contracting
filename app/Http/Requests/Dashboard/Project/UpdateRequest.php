@@ -28,8 +28,6 @@ class UpdateRequest extends FormRequest
             'description_ar'        => ['required', 'string', 'min:1', 'max:2000'],
             'description_en'        => ['required', 'string', 'min:1', 'max:2000'],
             'description_zh_cn'     => ['required', 'string', 'min:1', 'max:2000'],
-            'image'                 => ['nullable', 'image', 'max:2048'],
-            'url'                   => ['nullable', 'url', 'min:1', 'max:255'],
         ];
     }
 }

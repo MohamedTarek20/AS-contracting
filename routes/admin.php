@@ -24,13 +24,12 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')
         Route::group(['middleware' => ['auth:admin']], function () {
 
             Route::get('/', 'DashboardController@index')->name('dashboard');
-            Route::resource('admins', 'AdminController');
-            Route::resource('roles', 'RoleController');
             Route::resource('sliders', 'SliderController');
             Route::resource('services', 'ServiceController');
             Route::resource('testimonials', 'TestimonialController');
             Route::resource('partners', 'PartnerController');
             Route::resource('projects', 'ProjectController');
+            Route::resource('projects.attachments', 'ProjectAttachmentController');
             Route::resource('about-us', 'AboutUsController');
             Route::resource('about', 'AboutController');
             Route::resource('contacts', 'ContactController');

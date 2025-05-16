@@ -28,7 +28,7 @@ class PartnerController extends Controller
      */
     public function __construct(Partner $model)
     {
-        $this->model    = $model;
+        $this->model = $model;
     }
 
     /**
@@ -67,7 +67,7 @@ class PartnerController extends Controller
             $image = $this->fileUpload($data['image'], 'partners');
         }
         $this->model->create([
-            'image'     => $image
+            'image' => $image
         ]);
 
         return redirect()->route('admin.partners.index');
@@ -116,7 +116,7 @@ class PartnerController extends Controller
         }
 
         $row->update([
-            'image'     => $image
+            'image' => $image
         ]);
 
         return redirect()->route('admin.partners.index');

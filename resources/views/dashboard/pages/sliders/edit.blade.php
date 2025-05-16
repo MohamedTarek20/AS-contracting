@@ -12,7 +12,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body"> 
                     <form role="form" class="text-start"
                         action="{{ route('admin.sliders.update', ['slider' => $data->id]) }}" method="post"
                         enctype="multipart/form-data">

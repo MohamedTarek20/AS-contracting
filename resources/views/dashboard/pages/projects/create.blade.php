@@ -1,6 +1,6 @@
 @extends('dashboard.app')
 @push('styles')
-    <style>
+    {{-- <style>
         .upload-area {
             transition: background-color 0.3s ease;
             align-content: center;
@@ -80,7 +80,7 @@
         .add-more-btn:hover {
             background-color: #003ccc;
         }
-    </style>
+    </style> --}}
 @endpush
 @section('content')
     <div class="row">
@@ -179,7 +179,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="upload-area" id="uploadArea">
                                     <label id="uploadLabel">
                                         Upload Images
@@ -191,8 +191,8 @@
                                     </div>
                                 </div>
                                 <input type="file" id="imageInput" name="images[]" multiple accept="image/*">
-                            </div>
-                            <div class="col-12 my-3">
+                            </div> --}}
+                            {{-- <div class="col-12 my-3">
                                 <label for="exampleFormControlInput1" class="form-label">Upload Videos</label>
                                 <div class="input-group input-group-outline">
                                     <input class="form-control @error('videos.*') is-invalid @enderror" type="file" name="videos[]" accept="video/*" multiple>
@@ -202,7 +202,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="button-row d-flex mt-4">
                             <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
@@ -215,7 +215,7 @@
     </div>
 @endsection
 @push('scripts')
-    <script>
+    {{-- <script>
         const imageInput = document.getElementById('imageInput');
         const uploadLabel = document.getElementById('uploadLabel');
         const uploadArea = document.getElementById('uploadArea');
@@ -262,5 +262,5 @@
                 reader.readAsDataURL(file);
             });
         }
-    </script>
+    </script> --}}
 @endpush

@@ -28,11 +28,6 @@ class StoreRequest extends FormRequest
             'description_ar'        => ['required', 'string', 'min:1', 'max:2000'],
             'description_en'        => ['required', 'string', 'min:1', 'max:2000'],
             'description_zh_cn'     => ['required', 'string', 'min:1', 'max:2000'],
-            'images'                => ['required', 'array'],
-            'images.*'              => ['required_with:images', 'image', 'max:2048'],
-            'videos'                => ['sometimes', 'array'],
-            'videos.*'              => ['required_ with:videos','file','mimes:mp4,webm,ogg,mov,avi,wmv,mpeg,3gp,3g2,flv,mkv','max:51200']
-
         ];
     }
 }

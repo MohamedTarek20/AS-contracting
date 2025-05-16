@@ -1,7 +1,5 @@
 @extends('dashboard.app')
 @push('styles')
-    {{--
-     --}}
 @endpush
 @section('content')
     <div class="row">
@@ -111,29 +109,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <label for="exampleFormControlInput1" class="form-label">Image *</label>
-                                    <div class="col-11">
-                                        <div class="input-group input-group-outline">
-                                            <input class="form-control @error('image') is-invalid @enderror" type="file"
-                                                onfocus="focused(this)" onfocusout="defocused(this)" name="image"
-                                                accept=".jpg,.jpeg,.png,.bmp,.gif,.svg,.webp">
-                                            @error('image')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-1 align-content-end">
-                                        @if ($data->image)
-                                            <img src="{{ asset($data->attachment_full_path) }}" class="loaded-image"
-                                                alt="" style="width: 50px; height: 50px">
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="button-row d-flex mt-4">
                             <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit"
@@ -146,9 +121,4 @@
     </div>
 @endsection
 @push('scripts')
-    {{--
-    <script>
-        var existingImageUrl = '{{ $data->attachment_full_path }}';
-    </script>
-     --}}
 @endpush

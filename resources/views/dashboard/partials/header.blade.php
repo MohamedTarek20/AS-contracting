@@ -28,7 +28,7 @@
                         </a>
                         <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
                             aria-labelledby="dropdownMenuButtonProfile">
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex ">
                                         <div class="my-auto">
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="hidden">
                                     {{ csrf_field() }}

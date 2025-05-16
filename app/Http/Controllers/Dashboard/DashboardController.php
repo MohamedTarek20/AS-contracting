@@ -12,6 +12,10 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        return view('dashboard.pages.index');
+        $projects_count = Project::count();
+        $services_count = Service::count();
+        $messages_count = Message::count();
+
+        return view('dashboard.pages.index', compact('projects_count', 'services_count', 'messages_count'));
     }
 }

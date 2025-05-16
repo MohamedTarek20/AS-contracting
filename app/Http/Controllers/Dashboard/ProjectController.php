@@ -62,21 +62,21 @@ class ProjectController extends Controller
             'description_zh_cn' => $data['description_zh_cn'],
         ]);
 
-        foreach ($data['images'] as $key => $value) {
+        // foreach ($data['images'] as $key => $value) {
 
-            $project->attachments()->create([
-                'attachment' => $this->fileUpload($value, 'projects'),
-                'type' => 'image',
-            ]);
-        }
+        //     $project->attachments()->create([
+        //         'attachment' => $this->fileUpload($value, 'projects'),
+        //         'type' => 'image',
+        //     ]);
+        // }
 
-        foreach ($data['videos'] as $key => $value) {
+        // foreach ($data['videos'] as $key => $value) {
 
-            $project->attachments()->create([
-                'attachment' => $this->fileUpload($value, 'projects'),
-                'type' => 'video',
-            ]);
-        }
+        //     $project->attachments()->create([
+        //         'attachment' => $this->fileUpload($value, 'projects'),
+        //         'type' => 'video',
+        //     ]);
+        // }
 
         return redirect()->route('admin.projects.index');
     }

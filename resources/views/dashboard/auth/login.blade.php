@@ -3,7 +3,8 @@
 @endpush
 @section('content')
     <div class="page-header align-items-start min-vh-100"
-        style="background-image: url('{{ asset('dashboard/assets/img/photo-1497294815431-9365093b7331.avif') }}');">
+        {{-- style="background-image: url('{{ asset('dashboard/assets/img/photo-1497294815431-9365093b7331.avif') }}');" --}}
+        >
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container my-auto">
             <div class="row">
