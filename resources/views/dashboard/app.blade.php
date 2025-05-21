@@ -18,17 +18,17 @@
         @include('dashboard.partials.navbar')
         <!-- /.navbar -->
 
-        <div style="margin-left: 15.6rem!important;">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        </div>
+        <!--<div style="margin-left: 15.6rem!important;">-->
+        <!--@if ($errors->any())-->
+        <!--    <div class="alert alert-danger">-->
+        <!--        <ul>-->
+        <!--            @foreach ($errors->all() as $error)-->
+        <!--                <li>{{ $error }}</li>-->
+        <!--            @endforeach-->
+        <!--        </ul>-->
+        <!--    </div>-->
+        <!--@endif-->
+        <!--</div>-->
 
         <!-- Content Wrapper. Contains page content -->
         @yield('content')

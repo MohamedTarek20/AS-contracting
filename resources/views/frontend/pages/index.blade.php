@@ -49,40 +49,40 @@
         </div>
     </div>
 
-    <section class="service-area overflow-hidden space" id="service-sec"
-        data-bg-src="{{ asset('frontend/assets/img/bg/service_bg_1.jpg') }}">
-        <div class="container">
-            <div class="row">
-                <div class="title-area mb-0 text-center"><span class="sub-title">{{__('labels.our_services')}}</span>
-                    <h2 class="sec-title">{{__('labels.our_services_subtitle')}}</h2>
-                </div>
-            </div>
-            <div class="slider-area mt-60">
-                <div class="swiper th-slider has-shadow" id="serviceSlider1"
-                    data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}}'>
-                    <div class="swiper-wrapper">
-                        @foreach ($services as $key => $service)
-                            <div class="swiper-slide">
-                                <div class="service-box" data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_1.png') }}">
-                                    <div class="service-content">
-                                        <div class="service-box_icon"><img src="{{ $service->image_full_path }}"
-                                               width="60px" height="60px" alt="icon">
-                                        </div>
-                                        <div class="service-box_number">{{ $key + 1 }}</div>
-                                    </div>
-                                    <h3 class="box-title"><a href="javascript:;">{{$service->title}}</a>
-                                    </h3>
-                                    <p class="service-box_text">{{$service->description}}</p></a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div><button data-slider-prev="#serviceSlider1" class="slider-arrow slider-prev"><i
-                        class="far fa-arrow-left"></i></button> <button data-slider-next="#serviceSlider1"
-                    class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
-            </div>
-        </div>
-    </section>
+    <!--<section class="service-area overflow-hidden space" id="service-sec"-->
+    <!--    data-bg-src="{{ asset('frontend/assets/img/bg/service_bg_1.jpg') }}">-->
+    <!--    <div class="container">-->
+    <!--        <div class="row">-->
+    <!--            <div class="title-area mb-0 text-center"><span class="sub-title">{{__('labels.our_services')}}</span>-->
+    <!--                <h2 class="sec-title">{{__('labels.our_services_subtitle')}}</h2>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="slider-area mt-60">-->
+    <!--            <div class="swiper th-slider has-shadow" id="serviceSlider1"-->
+    <!--                data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}}'>-->
+    <!--                <div class="swiper-wrapper">-->
+    <!--                    @foreach ($services as $key => $service)-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <div class="service-box" data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_1.png') }}">-->
+    <!--                                <div class="service-content">-->
+    <!--                                    <div class="service-box_icon"><img src="{{ $service->image_full_path }}"-->
+    <!--                                           width="60px" height="60px" alt="icon">-->
+    <!--                                    </div>-->
+    <!--                                    <div class="service-box_number">{{ $key + 1 }}</div>-->
+    <!--                                </div>-->
+    <!--                                <h3 class="box-title"><a href="javascript:;">{{$service->title}}</a>-->
+    <!--                                </h3>-->
+    <!--                                <p class="service-box_text">{{$service->description}}</p></a>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    @endforeach-->
+    <!--                </div>-->
+    <!--            </div><button data-slider-prev="#serviceSlider1" class="slider-arrow slider-prev"><i-->
+    <!--                    class="far fa-arrow-left"></i></button> <button data-slider-next="#serviceSlider1"-->
+    <!--                class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
 
     <section class="consultation-sec bg-title position-relative overflow-hidden"
         data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_2.png') }}">

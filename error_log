@@ -1,0 +1,4 @@
+[20-May-2025 20:38:58 UTC] PHP Warning:  mkdir(): Permission denied in /home/alnasrcons/public_html/index.php on line 10
+[20-May-2025 20:39:59 UTC] PHP Warning:  Array to string conversion in /home/alnasrcons/public_html/index.php on line 16
+[20-May-2025 20:43:59 UTC] PHP Warning:  mkdir(): Permission denied in /home/alnasrcons/public_html/index.php on line 10
+[20-May-2025 20:45:51 UTC] PHP Warning:  mkdir(): Permission denied in /home/alnasrcons/public_html/index.php on line 10

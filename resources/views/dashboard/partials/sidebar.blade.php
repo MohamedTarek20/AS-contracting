@@ -183,13 +183,13 @@
                     <span class="nav-link-text ms-1">Sliders</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link @if (request()->routeIs('admin.services.*')) active  bg-gradient-dark text-white @else text-dark @endif"
-                    href="{{ route('admin.services.index') }}">
-                    <i class="material-symbols-rounded opacity-5">work</i>
-                    <span class="nav-link-text ms-1">Services</span>
-                </a>
-            </li>
+            <!--<li class="nav-item">-->
+            <!--    <a class="nav-link @if (request()->routeIs('admin.services.*')) active  bg-gradient-dark text-white @else text-dark @endif"-->
+            <!--        href="{{ route('admin.services.index') }}">-->
+            <!--        <i class="material-symbols-rounded opacity-5">work</i>-->
+            <!--        <span class="nav-link-text ms-1">Services</span>-->
+            <!--    </a>-->
+            <!--</li>-->
             <li class="nav-item">
                 <a class="nav-link @if (request()->routeIs('admin.testimonials.*')) active  bg-gradient-dark text-white @else text-dark @endif"
                     href="{{ route('admin.testimonials.index') }}">

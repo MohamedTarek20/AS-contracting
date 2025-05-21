@@ -16,3 +16,10 @@ Route::
             Route::get('projects', 'ProjectController@index')->name('projects.index');
             Route::get('projects/{id}', 'ProjectController@show')->name('projects.show');
         });
+
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/run-storage-link', function () {
+    Artisan::call('storage:link');
+    return 'storage:link command has been executed.';
+});
