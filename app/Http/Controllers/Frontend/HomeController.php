@@ -20,13 +20,13 @@ class HomeController extends Controller
         $testimonials = Testimonial::take(3)->get();
         $partners = Partner::take(6)->get();
         $projects = Project::take(3)->latest()->get();
-        $services = Service::all();
+//        $services = Service::all();
         return view('frontend.pages.index', [
             'sliders' => $sliders,
             'testimonials' => $testimonials,
             'partners'  => $partners,
             'projects'  => $projects,
-            'services'  => $services
+//            'services'  => $services
         ]);
     }
 

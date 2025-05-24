@@ -35,7 +35,7 @@
     </style>
 
     <style>
-        .icon-box{
+        .icon-box {
             direction: ltr;
         }
     </style>
@@ -55,6 +55,24 @@
 
     .contact-map iframe {
         filter: none;
+    }
+
+    .th-hero-wrapper, .th-hero-bg {
+        max-height: 800px;
+    }
+
+    .main-menu a.active {
+        color: var(--theme-color);
+    }
+
+    .project-content .box-title {
+        width: 45%;
+        line-break: normal;
+        justify-self: anchor-center;
+    }
+    .btn_see_more{
+        justify-self: center;
+        margin-top: 30px;
     }
 </style>
 

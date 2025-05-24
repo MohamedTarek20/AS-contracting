@@ -133,18 +133,27 @@
                         <div class="header-button">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
+                                    <li><a class="@if (App::getLocale() == 'en') active @endif"
+                                            href="{{ route('change-language', ['lang' => 'en']) }}">{{ __('labels.language', [], 'en') }}</a>
+                                    </li>
+                                    <li><a class="@if (App::getLocale() == 'ar') active @endif"
+                                            href="{{ route('change-language', ['lang' => 'ar']) }}">{{ __('labels.language', [], 'ar') }}</a>
+                                    </li>
+                                    <li><a class="@if (App::getLocale() == 'zh-CN') active @endif"
+                                            href="{{ route('change-language', ['lang' => 'zh-CN']) }}">{{ __('labels.language', [], 'zh-CN') }}</a>
+                                    </li>
+                                </ul>
+                                {{-- <ul>
                                     <li class="menu-item-has-children">
                                         <button type="button"
                                             class="icon-btn">{{ __('labels.language_short') }}</button>
                                         <ul class="sub-menu">
                                             @if (App::getLocale() != 'en')
-                                                <li><a
-                                                        href="{{ route('change-language', ['lang' => 'en']) }}">{{ __('labels.language', [], 'en') }}</a>
+                                                <li>
                                                 </li>
                                             @endif
                                             @if (App::getLocale() != 'ar')
-                                                <li><a
-                                                        href="{{ route('change-language', ['lang' => 'ar']) }}">{{ __('labels.language', [], 'ar') }}</a>
+                                                <li>
                                                 </li>
                                             @endif
                                             @if (App::getLocale() != 'zh-CN')
@@ -154,11 +163,11 @@
                                             @endif
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </nav>
-                            <a href="#" class="icon-btn sideMenuToggler d-none d-lg-block">
+                            {{-- <a href="#" class="icon-btn sideMenuToggler d-none d-lg-block">
                                 <i class="fa-solid fa-grid"></i>
-                            </a>
+                            </a> --}}
                             <a href="{{ route('contacts.index') }}"
                                 class="th-btn th-icon">{{ __('labels.contacts') }}<i
                                     class="fa-regular fa-arrow-right ms-2"></i></a>

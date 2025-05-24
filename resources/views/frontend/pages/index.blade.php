@@ -21,7 +21,8 @@
                             </div>
                             <div class="container">
                                 <div class="hero-style3">
-                                    <h1 class="hero-title" data-ani="slideinleft" data-ani-delay="0.4s">{{ $slider->title }}
+                                    <h1 class="hero-title" data-ani="slideinleft"
+                                        data-ani-delay="0.4s">{{ $slider->title }}
                                         <span class="hero-text">{{ $slider->description }}</span>
                                     </h1>
 
@@ -30,11 +31,11 @@
                                     <p class="hero-text" data-ani="slideinup" data-ani-delay="0.5s">
                                         {{ $slider->description }}</p> --}}
                                     <p class="hero-text slideinup" data-ani="slideinup" data-ani-delay="0.5s"
-                                        style="animation-delay: 0.5s;"> {{ $slider->description }}</p>
+                                       style="animation-delay: 0.5s;"> {{ $slider->description }}</p>
                                     @if ($slider->url)
                                         <div class="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
                                             <a href="{{ $slider->url }}"
-                                                class="th-btn style1 th-style th-icon">{{ __('labels.see_more') }}<i
+                                               class="th-btn style1 th-style th-icon">{{ __('labels.see_more') }}<i
                                                     class="fa-regular fa-arrow-right ms-2"></i></a>
                                         </div>
                                     @endif
@@ -43,53 +44,70 @@
                         </div>
                     </div>
                 @endforeach
-            </div><button data-slider-prev="#heroSlide3" class="slider-arrow slider-prev"><i
-                    class="far fa-arrow-left"></i></button> <button data-slider-next="#heroSlide3"
-                class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
+            </div>
+            <button data-slider-prev="#heroSlide3" class="slider-arrow slider-prev"><i
+                    class="far fa-arrow-left"></i></button>
+            <button data-slider-next="#heroSlide3"
+                    class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
         </div>
     </div>
 
-    <!--<section class="service-area overflow-hidden space" id="service-sec"-->
-    <!--    data-bg-src="{{ asset('frontend/assets/img/bg/service_bg_1.jpg') }}">-->
-    <!--    <div class="container">-->
-    <!--        <div class="row">-->
-    <!--            <div class="title-area mb-0 text-center"><span class="sub-title">{{__('labels.our_services')}}</span>-->
-    <!--                <h2 class="sec-title">{{__('labels.our_services_subtitle')}}</h2>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="slider-area mt-60">-->
-    <!--            <div class="swiper th-slider has-shadow" id="serviceSlider1"-->
-    <!--                data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}}'>-->
-    <!--                <div class="swiper-wrapper">-->
-    <!--                    @foreach ($services as $key => $service)-->
-    <!--                        <div class="swiper-slide">-->
-    <!--                            <div class="service-box" data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_1.png') }}">-->
-    <!--                                <div class="service-content">-->
-    <!--                                    <div class="service-box_icon"><img src="{{ $service->image_full_path }}"-->
-    <!--                                           width="60px" height="60px" alt="icon">-->
-    <!--                                    </div>-->
-    <!--                                    <div class="service-box_number">{{ $key + 1 }}</div>-->
-    <!--                                </div>-->
-    <!--                                <h3 class="box-title"><a href="javascript:;">{{$service->title}}</a>-->
-    <!--                                </h3>-->
-    <!--                                <p class="service-box_text">{{$service->description}}</p></a>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    @endforeach-->
-    <!--                </div>-->
-    <!--            </div><button data-slider-prev="#serviceSlider1" class="slider-arrow slider-prev"><i-->
-    <!--                    class="far fa-arrow-left"></i></button> <button data-slider-next="#serviceSlider1"-->
-    <!--                class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</section>-->
+
+    <section class="service-area overflow-hidden space">
+        <div class="container th-container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-xxl-6 offset-xxl-3">
+                    <div class="title-area text-center"><span
+                            class="sub-title">{{ __('labels.latest_projects') }}</span>
+                        <h2 class="sec-title">{{ __('labels.latest_projects_subtitle') }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-area">
+                <div class="swiper has-shadow project-slider" id="projectSlider1"
+                     data-slider-options='{"centeredSlides":true,"loop":true,"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"1"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"3"}}}'>
+                    <div class="row">
+                        @foreach ($projects as $project)
+                            <div class="swiper-slide swiper-slide-active col-12 col-md-6 col-xl-4">
+                                <div class="project-card">
+                                    <div class="project-img"><img
+                                            src="{{ $project->defaultImage->attachment_full_path }}"
+                                            alt="project image">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="box-title">
+                                            <a
+                                                href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="slider-pagination"></div>
+                </div>
+                <button data-slider-prev="#projectSlider1" class="slider-arrow slider-prev"><i
+                        class="far fa-arrow-left"></i></button>
+                <button data-slider-next="#projectSlider1"
+                        class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
+            </div>
+            <div class="btn_see_more"><a
+                    href="{{ route('projects.index') }}" class="th-btn style1 th-icon">{{ __('labels.see_more') }}</a>
+            </div>
+        </div>
+        <div class="shape-mockup d-none d-xl-block" data-top="0%" data-left="0%"><img
+                src="{{ asset('frontend/assets/img/shape/shape_1.png') }}" alt="shape"></div>
+        <div class="shape-mockup movingX d-none d-xxl-block" data-top="20%" data-right="0%"><img
+                src="{{ asset('frontend/assets/img/shape/shape_2.png') }}" alt="shape"></div>
+    </section>
 
     <section class="consultation-sec bg-title position-relative overflow-hidden"
-        data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_2.png') }}">
+             data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_2.png') }}">
         <div class="consultation-thumb">
             <div class="shape_1"></div>
-            <div class="shape_2"></div><img src="{{ asset('frontend/assets/img/normal/consultation_img.jpg') }}"
-                alt="">
+            <div class="shape_2"></div>
+            <img src="{{ asset('frontend/assets/img/normal/consultation_img.jpg') }}"
+                 alt="">
         </div>
         <div class="container">
             <div class="row align-items-end flex-row-reverse">
@@ -100,12 +118,13 @@
                             <h2 class="sec-title text-white">{{ __('labels.contacts_title') }}</h2>
                         </div>
                         <div class=""><a href="{{ route('contacts.index') }}"
-                                class="th-btn style1 th-icon">{{ __('labels.contacts') }}<i
+                                         class="th-btn style1 th-icon">{{ __('labels.contacts') }}<i
                                     class="fa-regular fa-arrow-right ms-2"></i></a></div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="consultation-image movingX"><img src="{{ asset('frontend/assets/img/normal/image.png') }}"
+                    <div class="consultation-image movingX"><img
+                            src="{{ asset('frontend/assets/img/normal/image.png') }}"
                             alt="">
                     </div>
                 </div>
@@ -113,7 +132,8 @@
         </div>
     </section>
 
-    <div class="counter-sec">
+    <div class="counter-sec  bg-smoke"
+         data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_3.png') }}">
         <div class="container">
             <div class="counter-area bg-theme" data-pos-for="#consultation-sec" data-sec-pos="top-half">
                 <div class="row">
@@ -158,73 +178,22 @@
         </div>
     </div>
 
-    <section class="project-area overflow-hidden space" data-pos-for="#counter-sec" data-sec-pos="top-half">
-        <div class="container th-container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-xxl-6 offset-xxl-3">
-                    <div class="title-area text-center"><span class="sub-title">{{ __('labels.latest_projects') }}</span>
-                        <h2 class="sec-title">{{ __('labels.latest_projects_subtitle') }}</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-area">
-                <div class="swiper th-slider has-shadow project-slider" id="projectSlider1"
-                    data-slider-options='{"centeredSlides":true,"loop":true,"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"1"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"3"}}}'>
-                    <div class="swiper-wrapper">
-                        @foreach ($projects as $project)
-                            <div class="swiper-slide">
-                                <div class="project-card">
-                                    <div class="project-img"><img
-                                            src="{{ $project->defaultImage->attachment_full_path }}" alt="project image">
-                                    </div>
-                                    <div class="project-content">
-                                        <h3 class="box-title"
-                                            style="
-    width: 45%;
-    line-break: normal;
-    justify-self: anchor-center;
-">
-                                            <a
-                                                href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a>
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="slider-pagination"></div>
-                </div><button data-slider-prev="#projectSlider1" class="slider-arrow slider-prev"><i
-                        class="far fa-arrow-left"></i></button> <button data-slider-next="#projectSlider1"
-                    class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
-            </div>
-            <div class="" style="
-    justify-self: center;
-    margin-top: 30px;"><a
-                    href="{{ route('projects.index') }}" class="th-btn style1 th-icon">{{ __('labels.see_more') }}</a>
-            </div>
-        </div>
-        <div class="shape-mockup d-none d-xl-block" data-top="15%" data-left="0%"><img
-                src="{{ asset('frontend/assets/img/shape/shape_1.png') }}" alt="shape"></div>
-        <div class="shape-mockup movingX d-none d-xxl-block" data-top="20%" data-right="0%"><img
-                src="{{ asset('frontend/assets/img/shape/shape_2.png') }}" alt="shape"></div>
-    </section>
-
     <section class="testi-area bg-smoke overflow-hidden space" id="testi-sec"
-        data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_3.png') }}">
+             data-bg-src="{{ asset('frontend/assets/img/bg/shape_bg_3.png') }}">
         <div class="container">
             <div class="title-area text-center"><span class="sub-title">{{ __('labels.client_testimonial') }}</span>
                 <h2 class="sec-title">{{ __('labels.client_testimonial_subtitle') }}</h2>
             </div>
             <div class="slider-area">
                 <div class="swiper th-slider has-shadow" id="testiSlider1"
-                    data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}}'>
+                     data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}}'>
                     <div class="swiper-wrapper">
                         @foreach ($testimonials as $testimonial)
                             <div class="swiper-slide">
                                 <div class="testi-card">
                                     <div class="testi-card_profile">
                                         <div class="testi-card_avater"><img src="{{ $testimonial->image_full_path }}"
-                                                alt="testimonial"></div>
+                                                                            alt="testimonial"></div>
                                         <div class="testi-card-quote"><img
                                                 src="{{ asset('frontend/assets/img/icon/testi-quote.svg') }}"
                                                 alt="img">
@@ -249,9 +218,11 @@
                             </div>
                         @endforeach
                     </div>
-                </div><button data-slider-prev="#testiSlider1" class="slider-arrow style2 slider-prev"><i
-                        class="far fa-arrow-left"></i></button> <button data-slider-next="#testiSlider1"
-                    class="slider-arrow style2 slider-next"><i class="far fa-arrow-right"></i></button>
+                </div>
+                <button data-slider-prev="#testiSlider1" class="slider-arrow style2 slider-prev"><i
+                        class="far fa-arrow-left"></i></button>
+                <button data-slider-next="#testiSlider1"
+                        class="slider-arrow style2 slider-next"><i class="far fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -265,8 +236,9 @@
                             <h3 class="sec-title text-white">{{ __('labels.partners_title') }}</h3>
                             <p class="brand-text text-white">{{ __('labels.partners_subtitle') }}</p>
 
-                            <div class="icon-box"><button data-slider-prev="#brandSlider1"
-                                    class="slider-arrow default"><i class="far fa-arrow-left"></i></button>
+                            <div class="icon-box">
+                                <button data-slider-prev="#brandSlider1"
+                                        class="slider-arrow default"><i class="far fa-arrow-left"></i></button>
                                 <button data-slider-next="#brandSlider1" class="slider-arrow default"><i
                                         class="far fa-arrow-right"></i></button>
                             </div>
@@ -275,12 +247,13 @@
                 </div>
                 <div class="col-xl-8">
                     <div class="swiper th-slider brandSlider1" id="brandSlider1"
-                        data-slider-options='{"grid":{"rows":2,"fill":"row"},"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"3"}}}'>
+                         data-slider-options='{"grid":{"rows":2,"fill":"row"},"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"3"}}}'>
                         <div class="swiper-wrapper">
                             @foreach ($partners as $partner)
                                 <div class="swiper-slide">
                                     <div class="brand-box"><a href="javascript:void(0)"><img class="original"
-                                                src="{{ $partner->image_full_path }}" alt="Brand Logo"> <img
+                                                                                             src="{{ $partner->image_full_path }}"
+                                                                                             alt="Brand Logo"> <img
                                                 class="gray" src="{{ $partner->image_full_path }}"
                                                 alt="Brand Logo"></a>
                                     </div>
@@ -308,25 +281,25 @@
                                 {{ session()->get('message') }}
                             </div>
                         @endif
-                        <form class="contact-form2"action="{{ route('messages.store') }}" method="POST">
+                        <form class="contact-form2" action="{{ route('messages.store') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" id="name"
-                                        placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.name')]) }}">
+                                           name="name" id="name"
+                                           placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.name')]) }}">
                                     <i class="fal fa-user"></i>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" id="email"
-                                        placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.email')]) }}">
+                                           name="email" id="email"
+                                           placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.email')]) }}">
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <input type="tel" class="form-control @error('phone') is-invalid @enderror"
-                                        name="phone" id="phone"
-                                        placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.phone')]) }}">
+                                           name="phone" id="phone"
+                                           placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.phone')]) }}">
                                     <i class="fal fa-phone"></i>
                                 </div>
                                 {{-- <div class="form-group col-md-6">
@@ -342,11 +315,14 @@
                                     </select></div> --}}
                                 <div class="form-group col-12">
                                     <textarea name="message" id="message" cols="30" rows="3"
-                                        class="form-control @error('message') is-invalid @enderror"
-                                        placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.message')]) }}"></textarea> <i class="fal fa-pencil"></i>
+                                              class="form-control @error('message') is-invalid @enderror"
+                                              placeholder="{{ __('labels.custom_input', ['attribute' => __('labels.message')]) }}"></textarea>
+                                    <i class="fal fa-pencil"></i>
                                 </div>
-                                <div class="form-btn col-12"><button class="th-btn">{{ __('labels.submit') }}<i
-                                            class="fa-regular fa-arrow-right ms-2"></i></button></div>
+                                <div class="form-btn col-12">
+                                    <button class="th-btn">{{ __('labels.submit') }}<i
+                                            class="fa-regular fa-arrow-right ms-2"></i></button>
+                                </div>
                             </div>
                             <p class="form-messages mb-0 mt-3"></p>
                         </form>
@@ -354,7 +330,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-image"><img src="{{ asset('frontend/assets/img/normal/contact-image.jpg') }}"
-                            alt="">
+                                                    alt="">
                     </div>
                 </div>
             </div>
